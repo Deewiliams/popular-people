@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container,Row,Col,Card,Button } from 'react-bootstrap';
-import ListImages from './ListImages';
+
 
 const Header = () => {
   return (
@@ -22,7 +22,7 @@ const Header = () => {
     </Col>
   </Row>
   <br />
-  <ListImages />
+ 
 </Container>
 
 </>
