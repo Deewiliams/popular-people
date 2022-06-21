@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      
       <Routes>
       <Route path="/" element={ <ListImages />} />
     <Route path="/personDetail/:person_id" exact element={ <PersonDetail />} />
