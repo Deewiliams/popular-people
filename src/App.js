@@ -9,9 +9,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ListImages />
+      
       <Routes>
-    <Route path="/personDetail/:person_id" element={ <PersonDetail />} />
+      <Route path="/" element={ <ListImages />} />
+    <Route path="/personDetail/:person_id" exact element={ <PersonDetail />} />
   </Routes>
     </div>
   );
