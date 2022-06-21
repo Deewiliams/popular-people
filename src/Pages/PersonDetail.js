@@ -13,7 +13,7 @@ const PersonDetail = () => {
 
     const getPersonDetail = async () => {
         setLoading(true);
-        await axios.get(`https://api.themoviedb.org/3/person/${person_id}?api_key=d86a765007a6b298c10937969b0a8623`)
+        await axios.get(`${process.env.REACT_APP_BASE_URL}${person_id}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then((response) => {
                 setPersonIfo(response.data)
                 setLoading(false);
