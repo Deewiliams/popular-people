@@ -58,10 +58,15 @@ const PersonDetail = () => {
                                     </p>
                                     <p style={{ textAlign: 'left', fontSize: 15 }}>
                                         <Link to="/">
-                                            <Button>Back</Button>
+                                            <div className="d-grid gap-2">
+                                                <Button variant="primary" size="lg">
+                                                    Black
+                                                </Button>
+                                            </div>
                                         </Link>
                                     </p>
                                 </Col>
+
                             </Row>
                             <br />
                         </Container></>
