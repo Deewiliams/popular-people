@@ -1,8 +1,21 @@
 import React from 'react'
+import Spinner from 'react-bootstrap/Spinner';
+import { Button } from 'react-bootstrap';
 
 const Loading = () => {
   return (
-    <h3 className='loading'>Loading....</h3>
+    <div className='="loading'>
+    <Spinner
+      as="span"
+      
+      animation="grow"
+      size="sm"
+      role="status"
+      aria-hidden="true"
+    />
+   <b> Loading...</b>
+  </div>
+   
   )
 }
 

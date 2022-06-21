@@ -66,7 +66,6 @@ const PersonDetail = () => {
                                         </Link>
                                     </p>
                                 </Col>
-
                             </Row>
                             <br />
                         </Container></>
