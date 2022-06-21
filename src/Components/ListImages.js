@@ -1,58 +1,38 @@
-import React from 'react';
-import { Container, Row, Col,Card,Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import axios from 'axios';
+
 
 const ListImages = () => {
+    const [actor, setActor] = useState([]);
+
+    const getPopularPeople = async () => {
+        await axios.get("https://api.themoviedb.org/3/person/popular?api_key=d86a765007a6b298c10937969b0a8623")
+        .then((res) => {
+            setActor(res.data.results)
+            console.log(res.data.results);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    useEffect(() => {
+        getPopularPeople();
+    },[])
     return (
         <Container>
             <Row>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
+                {actor.map((act) => (<>
+                    <Col>
+                    <Card style={{ width: '13rem' }}>
+                        <Card.Img variant="top" src={`http://image.tmdb.org/t/p/w400${act.profile_path}`} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
+                            <Card.Title>{act.name} </Card.Title>
                             <Button variant="primary">Go somewhere</Button>
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col sm>
-                <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col sm><Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card></Col>
-                <Col sm><Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card></Col>
+                </>))}
             </Row>
         </Container>
     )
