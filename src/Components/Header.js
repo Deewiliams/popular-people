@@ -10,7 +10,7 @@ const Header = () => {
                 <Row >
                     <Col>
                         <Card>
-                            <Card.Img variant="top" height={250} src={movie} />
+                            <Card.Img variant="top" height={200} src={movie} />
                             <Card.Body>
                                 <h3>Popular people</h3>
                             </Card.Body>
