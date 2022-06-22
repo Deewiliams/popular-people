@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loading from '../Components/Loading';
+import Search from '../Components/Search';
 
 const ListImages = () => {
     const [actor, setActor] = useState([]);
@@ -27,6 +28,8 @@ const ListImages = () => {
             {loading ? (<Loading />) : (
                 <>
                     <Container>
+                        <Search />
+                        <br />
                         <Row>
                             {actor.map((person) => (<>
                                 <Col key={person.id}>
