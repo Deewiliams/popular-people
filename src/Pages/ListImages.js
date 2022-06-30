@@ -10,6 +10,7 @@ import Search from '../Components/Search';
 const ListImages = () => {
   const [actor, setActor] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const getPopularPeople = async () => {
     setLoading(true);
@@ -18,7 +19,7 @@ const ListImages = () => {
         setActor(res.data.results);
         setLoading(false);
       }).catch((error) => {
-        console.err(error);
+        setErrorMessage('An error occurred', error);
       });
   };
 
@@ -29,6 +30,7 @@ const ListImages = () => {
     <>
       {loading ? (<Loading />) : (
         <>
+          {errorMessage}
           <Container>
             <Search />
             <br />
@@ -37,19 +39,19 @@ const ListImages = () => {
                 <>
                   <Col key={person.id}>
                     <Card style={{ width: '13rem' }}>
-                        <Card.Img variant="top" src={`http://image.tmdb.org/t/p/w400${person.profile_path}`} />
-                        <Card.Body>
-                            <Card.Title>
-                                {person.name}
-                                {' '}
-                              </Card.Title>
-                            <Link to={`/personDetail/${person.id}`}>
-                                <Button variant="primary">
-                                    View Info
-                                                </Button>
-                              </Link>
-                          </Card.Body>
-                      </Card>
+                      <Card.Img variant="top" src={`http://image.tmdb.org/t/p/w400${person.profile_path}`} />
+                      <Card.Body>
+                        <Card.Title>
+                          {person.name}
+                          {' '}
+                        </Card.Title>
+                        <Link to={`/personDetail/${person.id}`}>
+                          <Button variant="primary">
+                            View Info
+                          </Button>
+                        </Link>
+                      </Card.Body>
+                    </Card>
                     <br />
                   </Col>
                 </>

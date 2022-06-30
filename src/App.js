@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<ListImages />} />
-        <Route path="/personDetail/:person_id" exact element={<PersonDetail />} />
+        <Route path="/personDetail/:personId" exact element={<PersonDetail />} />
       </Routes>
     </div>
   );

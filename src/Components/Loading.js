@@ -5,7 +5,6 @@ const Loading = () => (
   <div className='="loading'>
     <Spinner
       as="span"
-
       animation="grow"
       size="sm"
       role="status"
